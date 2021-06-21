@@ -51,25 +51,25 @@ Users.createUser = (userReqData, result) => {
 
 Users.updateUser = (COD, userReqData, result) => {
   db.query(
-    "UPDATE users SET  CPF=?,  NM=?,  TEL=?,  END=?,  EMAIL=?,  NIVEL=?,  SENHA=?,  DATA_ENT=?,  DATA_SAIDA=? WHERE COD=?",
+    "UPDATE users SET CPF=?, NM=?, TEL=?, END=?, EMAIL=?, NIVEL=?, SENHA=?, DATA_ENT=?, DATA_SAIDA=? WHERE COD=?",
     [
-      userReqData.cpf,
-      userReqData.nm,
-      userReqData.tel,
-      userReqData.end,
-      userReqData.email,
-      userReqData.nivel,
-      userReqData.senha,
-      userReqData.data_ent,
-      userReqData.data_saida,
+      userReqData[0].CPF,
+      userReqData[0].NM,
+      userReqData[0].TEL,
+      userReqData[0].END,
+      userReqData[0].EMAIL,
+      userReqData[0].NIVEL,
+      userReqData[0].SENHA,
+      userReqData[0].DATA_ENT,
+      userReqData[0].DATA_SAIDA,
       COD,
     ],
     (err, res) => {
       if (err) {
-        console.log("Error while updating");
+        console.log("Error while updating", userReqData[0].CPF);
         result(null, err);
       } else {
-        console.log("User updated successfully", userReqData.cpf);
+        console.log("User updated successfully", userReqData[0].CPF);
         result(null, res);
       }
     }

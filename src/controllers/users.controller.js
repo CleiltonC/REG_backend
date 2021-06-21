@@ -46,7 +46,7 @@ exports.createNewUser = (req, res) => {
 // Update user
 exports.updateUser = (req, res) => {
   const userReqData = req.body;
-  console.log("userReqData update", userReqData);
+  // console.log("userReqData update", userReqData);
   // check null
   if (req.body.constructor === Object && Object.keys(req.body).lenght === 0) {
     res
